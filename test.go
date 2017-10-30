@@ -5,7 +5,15 @@ import (
 	"fmt"
 	"encoding/json"
 	"io/ioutil"
+	"html/template"
+	"regexp"
+	"net/http"
+	"strings"
 )
+
+var templates = template.Must(template.ParseGlob("templates/*"))
+
+var validPath = regexp.MustCompile("^(/$|/([a-zA-Z0-9]+))$")
 
 type Stall struct {
 	Id int	`json:"id"`
@@ -48,9 +56,47 @@ func getStalls() []Stall {
 	return s
 }
 
-func main() {
-	stalls := getStalls()	
+// Rendering from https://stackoverflow.com/questions/17206467/go-how-to-render-multiple-templates-in-golang
+func indexHandler(w http.ResponseWriter, r *http.Request, name string) {
+	stalls := getStalls()
+	templates.ExecuteTemplate(w, "index", stalls)
+}
+
+// Handle a specific stall
+func stallHandler(w http.ResponseWriter, r *http.Request, name string) {
+	stalls := getStalls()
+	// Find the stall 
 	for _, s := range stalls {
-		fmt.Println(s.toString())
+		if strings.ToLower(s.StallName) == strings.ToLower(name) {
+			templates.ExecuteTemplate(w, "stall", s)
+			return
+		}
 	}
+	http.NotFound(w, r)
+
+}
+
+// Make handlers, so that regex can check path
+func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		// Extract page title
+		m := validPath.FindStringSubmatch(r.URL.Path)
+		if m == nil {
+			http.NotFound(w, r)
+			return
+		}
+		if m[2] != "" {
+			stallHandler(w, r, m[2])
+			return
+		}
+		// Make the function
+		fn(w, r, m[2])
+		fmt.Println(m[2])
+	}
+}
+
+
+func main() {
+	http.HandleFunc("/", makeHandler(indexHandler))
+	http.ListenAndServe(":8080", nil)
 }

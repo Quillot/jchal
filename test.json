@@ -1,14 +1,14 @@
 [
 	{
 		"id": 1,
-		"stall-name": "Carlo's Quesadillas",
+		"stall-name": "Carlos",
 		"stall-desc": "Good stuff from Carlo's",
 		"contact": "facebook.com/carloque",
 		"items": [
 			{
 				"item-name": "Cheese Quesadilla",
 				"item-desc": "It's very cheesy",
-				"price": 90.00
+				"price": 91.10
 			},
 			{
 				"item-name": "Meat Quesadilla",
@@ -19,7 +19,7 @@
 	},
 	{
 		"id": 2,
-		"stall-name": "Gab's garbage",
+		"stall-name": "Gabs",
 		"stall-desc": "Bad stuff from Gab's",
 		"contact": "facebook.com/gabage",
 		"items": [
