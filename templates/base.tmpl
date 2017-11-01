@@ -3,13 +3,24 @@
 <html>
 <head>
 	<title>JSEC Challenge</title>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<link rel="stylesheet" href="../static/css/reset.css">
 	<link rel="stylesheet" href="../static/css/base.css">
+	<link rel="stylesheet" href="../static/css/index.css">
 </head>
 <body>
 	<!-- Sidebar -->
 	<div id="sidebar">
-		Test
+		{{range .}}
+		<div class="tile">
+			<a href="/{{.StallName}}">
+				<img src="../static/images/{{.StallName}}.png">
+			</a>
+		</div>
+		{{end}}
+		<!-- <img src="../static/images/jsec_logo.jpg" id="jsec-logo">
+		<a href="#" target="_blank">Home</a>
+		<a href="#" target="_blank">About</a>
+		<a href="#" target="_blank">Contact Us</a> -->
 	</div>
-</body>
-</html>
 {{end}}

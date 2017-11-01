@@ -1,3 +1,40 @@
-#sidebar {
-	color: red;
+a {
+	display: inline !important;
 }
+
+#sidebar {
+	position: fixed;
+	width: 20em;
+	height: 100vh;
+	background-color: black;
+	text-align: center;
+}
+	#sidebar a {
+		display: block;
+		color: white;
+		text-decoration: none;
+		margin: 2em 0;
+	}
+
+.tile {
+	display: inline;
+	width: 30%;
+}
+
+	.tile img:hover {
+		filter: grayscale(40%);
+		border: 1px solid white;
+	}
+
+	.tile img{
+		border: 1px solid transparent;
+		width: 30%;
+	}
+
+#jsec-logo {
+	width: 60%;
+	margin-top: 20%;
+	border-radius: 60%;
+}
+
+

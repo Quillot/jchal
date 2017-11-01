@@ -1,15 +1,24 @@
 {{define "index"}}
-{{range .}}
-<h1>{{.StallName}}</h1>
-<h3>{{.StallDesc}}</h3>
-<ul>
-	{{range .Items}}
-	<li>{{.ItemName}}</li>
-	<li>{{.ItemDesc}}</li>
-	<li>{{.Price}}</li>
-	{{end}}
-</ul>
-{{end}}
+	<div id="index">
+		{{range .}}
+		<div class="stall">
+			<a href="">
+				<div class="stall-header">
+					<img src="../static/images/sandwich_icon.png">
+					<h1>{{.StallName}}</h1><br>
+				</div>
+				<div class="stall-body">
+					<img src="../static/images/{{.StallName}}.png">
+					<div class="stall-desc">
+						<h3>{{.StallDesc}}</h3>	
+					</div>
+				</div>
+			</a>
+		</div>
+		{{end}}
+	</div>
+</body>
+</html>	
 {{end}}
 
 <!-- Instead of define "content", we tell it to call base template instead -->

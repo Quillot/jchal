@@ -1,4 +1,3 @@
-// From this lovely https://www.chazzuka.com/2015/03/load-parse-json-file-golang/
 package main
 
 import (
@@ -12,8 +11,6 @@ import (
 )
 
 var templates = template.Must(template.ParseGlob("templates/*.tmpl"))
-// var templates *template.Template
-
 
 var validPath = regexp.MustCompile("^(/$|/([a-zA-Z0-9]+))$")
 
@@ -36,6 +33,7 @@ func (s Stall) toString() string {
 }
 
 // Convert the stall interface to JSON
+// From this lovely https://www.chazzuka.com/2015/03/load-parse-json-file-golang/
 func toJson(s interface{}) string {
 	bytes, err := json.MarshalIndent(s, "", "  ")
 	if err != nil {
@@ -59,7 +57,7 @@ func getStalls() []Stall {
 
 func indexHandler(w http.ResponseWriter, r *http.Request, name string) {
 	stalls := getStalls()
-	templates.ExecuteTemplate(w, "base", nil)
+	templates.ExecuteTemplate(w, "base", stalls)
 	templates.ExecuteTemplate(w, "index", stalls)
 	return
 }
@@ -82,7 +80,6 @@ func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Extract page title
 		m := validPath.FindStringSubmatch(r.URL.Path)
-
 		// Route to 404, or to stallHandler
 		if m == nil {
 			http.NotFound(w, r)
