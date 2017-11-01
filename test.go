@@ -11,7 +11,9 @@ import (
 	"strings"
 )
 
-var templates = template.Must(template.ParseGlob("templates/*"))
+var templates = template.Must(template.ParseGlob("templates/*.tmpl"))
+// var templates *template.Template
+
 
 var validPath = regexp.MustCompile("^(/$|/([a-zA-Z0-9]+))$")
 
@@ -59,7 +61,9 @@ func getStalls() []Stall {
 // Rendering from https://stackoverflow.com/questions/17206467/go-how-to-render-multiple-templates-in-golang
 func indexHandler(w http.ResponseWriter, r *http.Request, name string) {
 	stalls := getStalls()
+	templates.ExecuteTemplate(w, "base", nil)
 	templates.ExecuteTemplate(w, "index", stalls)
+	return
 }
 
 // Handle a specific stall
@@ -68,7 +72,9 @@ func stallHandler(w http.ResponseWriter, r *http.Request, name string) {
 	// Find the stall 
 	for _, s := range stalls {
 		if strings.ToLower(s.StallName) == strings.ToLower(name) {
-			templates.ExecuteTemplate(w, "stall", s)
+			templates.ExecuteTemplate(w, "base", nil)
+			templates.ExecuteTemplate(w, "content", s)
+
 			return
 		}
 	}
@@ -81,6 +87,8 @@ func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Extract page title
 		m := validPath.FindStringSubmatch(r.URL.Path)
+
+		// Make map of template sets
 		if m == nil {
 			http.NotFound(w, r)
 			return
@@ -94,9 +102,27 @@ func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 		fmt.Println(m[2])
 	}
 }
+// From https://astaxie.gitbooks.io/build-web-application-with-golang/en/07.4.html
+func makeTemplates() {
+	var templatesDir = "templates"
+	var allFiles []string
+	files, err := ioutil.ReadDir("./" + templatesDir)
+	if err != nil {
+		fmt.Println(err)
+	}
+	for _, file := range files {
+		filename := file.Name()
+		if strings.HasSuffix(filename, ".tmpl") {
+			allFiles = append(allFiles, "./"+ templatesDir + "/"+ filename)
+		}
+	}
+	templates, err = template.ParseFiles(allFiles...)
+}
 
 
 func main() {
+	// makeTemplates()
 	http.HandleFunc("/", makeHandler(indexHandler))
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	http.ListenAndServe(":8080", nil)
 }
