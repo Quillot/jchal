@@ -1,6 +1,6 @@
 {
-	"ImportPath": ".",
-	"GoVersion": "go1.9.2",
+	"ImportPath": "github.com/Quillot/jchal",
+	"GoVersion": "go1.9",
 	"GodepVersion": "v79",
 	"Packages": [
 		"./..."
