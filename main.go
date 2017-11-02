@@ -9,6 +9,10 @@ import (
 	"net/http"
 	"strings"
 	// "google.golang.org/appengine"
+
+	//for heroku
+	"os"
+	"log"
 )
 
 var templates = template.Must(template.ParseGlob("templates/*.tmpl"))
@@ -108,5 +112,5 @@ func main() {
 	// http.ListenAndServe(":8080", nil)
 	// For heroku
 	port := ":" + os.Getenv("PORT")
-    log.Fatal(http.ListenAndServe(port, router))
+    log.Fatal(http.ListenAndServe(port, nil))
 }
