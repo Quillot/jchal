@@ -82,9 +82,7 @@ func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Extract page title
 
-		fmt.Println(strings.TrimSpace(r.URL.Path))
 		m := validPath.FindStringSubmatch(r.URL.Path)
-		// fmt.Println(url.QueryUnescape(r.URL.Path))
 
 		// Route to 404, or to stallHandler
 		if m == nil {
