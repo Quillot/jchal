@@ -70,22 +70,50 @@ p {
 }
 
 	.menu-item {
+		border-radius: 20px;
 		position: relative;
-		margin: 0.5em 1em;
+		height: 10em;
+		width: 80%;
+		margin: 1.5em auto;
 		text-align: left;
+		background: white;
+		box-shadow: 0.3em 0.3em 1em #888888;
 	}
-		.menu-item:nth-child(2n+1) {
-			background: #DDD;
-		}
 
 		.menu-item img {
-			width: 10%;
+			width: 20%;
 			padding: 0.5em;
-			margin: 0;
+			margin: 0em 2.5em;
+			margin-top: 0.5em;
+			border-radius: 100%;
 		}
 
-		.menu-desc {
+	.menu-desc {
+		position: absolute;
+		display: inline;
+		margin: 2.5em 1em; 
+	}
+
+	.menu-price {
+		float: right;
+		position: relative;
+		height: 100%;
+		width: 15%;
+		padding: 0 1em;
+		border-left: 1px solid #DDD;
+	}
+
+		.menu-price p {
+			font-family: pt-sans-bold;
+			font-size: 1.5em;
 			position: absolute;
-			display: inline;
-			margin: 1em;
+			top: 30%;
+			left: 30%;
+		}
+
+		.menu-price p::after {
+			text-align: center;
+			font-size: 0.5em;
+			display: block;
+			content: "Php";
 		}

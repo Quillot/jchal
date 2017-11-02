@@ -28,6 +28,8 @@ type Item struct {
 	Price float64
 }
 
+
+
 func (s Stall) toString() string {
 	return toJson(s)
 }
