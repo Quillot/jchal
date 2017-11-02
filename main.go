@@ -105,5 +105,8 @@ func main() {
 	// appengine.Main()
 	http.HandleFunc("/", makeHandler(indexHandler))
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-	http.ListenAndServe(":8080", nil)
+	// http.ListenAndServe(":8080", nil)
+	// For heroku
+	port := ":" + os.Getenv("PORT")
+    log.Fatal(http.ListenAndServe(port, router))
 }
