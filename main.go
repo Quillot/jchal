@@ -12,7 +12,7 @@ import (
 
 var templates = template.Must(template.ParseGlob("templates/*.tmpl"))
 
-var validPath = regexp.MustCompile("^(/$|/([a-zA-Z0-9]+))$")
+var validPath = regexp.MustCompile(`^(/$|/([\w\S, Ú]+))$`)
 
 type Stall struct {
 	Id int	`json:"id"`
@@ -79,7 +79,11 @@ func stallHandler(w http.ResponseWriter, r *http.Request, name string) {
 func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Extract page title
+		fmt.Println(r.URL.Path)
 		m := validPath.FindStringSubmatch(r.URL.Path)
+		// fmt.Println(url.QueryUnescape(r.URL.Path))
+
+		fmt.Println(m)
 		// Route to 404, or to stallHandler
 		if m == nil {
 			http.NotFound(w, r)
