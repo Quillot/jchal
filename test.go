@@ -8,6 +8,7 @@ import (
 	"regexp"
 	"net/http"
 	"strings"
+	"google.golang.org/appengine"
 )
 
 var templates = template.Must(template.ParseGlob("templates/*.tmpl"))
@@ -101,7 +102,8 @@ func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 }
 
 func main() {
-	http.HandleFunc("/", makeHandler(indexHandler))
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-	http.ListenAndServe(":8080", nil)
+	appengine.Main()
+	// http.HandleFunc("/", makeHandler(indexHandler))
+	// http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	// http.ListenAndServe(":8080", nil)
 }
