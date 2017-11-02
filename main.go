@@ -52,8 +52,10 @@ func getStalls() []Stall {
 
 	var s []Stall
 	json.Unmarshal(raw, &s)
+
 	return s
 }
+
 
 func indexHandler(w http.ResponseWriter, r *http.Request, name string) {
 	stalls := getStalls()
@@ -66,8 +68,8 @@ func stallHandler(w http.ResponseWriter, r *http.Request, name string) {
 	stalls := getStalls()
 	for _, s := range stalls {
 		if strings.ToLower(s.StallName) == strings.ToLower(name) {
-			templates.ExecuteTemplate(w, "base", nil)
-			templates.ExecuteTemplate(w, "content", s)
+			templates.ExecuteTemplate(w, "base", stalls)
+			templates.ExecuteTemplate(w, "index", s)
 			return
 		}
 	}
@@ -79,18 +81,18 @@ func stallHandler(w http.ResponseWriter, r *http.Request, name string) {
 func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Extract page title
-		fmt.Println(r.URL.Path)
+
+		fmt.Println(strings.TrimSpace(r.URL.Path))
 		m := validPath.FindStringSubmatch(r.URL.Path)
 		// fmt.Println(url.QueryUnescape(r.URL.Path))
 
-		fmt.Println(m)
 		// Route to 404, or to stallHandler
 		if m == nil {
 			http.NotFound(w, r)
 			return
 		}
 		if m[2] != "" {
-			stallHandler(w, r, m[2])
+			stallHandler(w, r, strings.TrimSpace(m[2]))
 			return
 		}
 
