@@ -60,7 +60,6 @@ func getStalls() []Stall {
 func indexHandler(w http.ResponseWriter, r *http.Request, name string) {
 	stalls := getStalls()
 	templates.ExecuteTemplate(w, "base", stalls)
-	templates.ExecuteTemplate(w, "index", stalls)
 	return
 }
 

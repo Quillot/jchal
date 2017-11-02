@@ -1,3 +1,18 @@
+h1 {
+	font-size: 2em;
+	font-family: pt-sans-bold;
+}
+
+h3 {
+	font-size: 1.2em;
+	font-family: pt-sans-bold;
+}
+
+p {
+	font-family: pt-sans;
+	padding-top: 0.5em;
+}
+
 #index {
 	margin-left: 20em;
 	padding: 0em 2em;
@@ -10,57 +25,67 @@
 
 .stall {
 	text-align: center;
-	height: 20em;
-	width: 17em;
+	min-width: 670px;
+	width: 50em;
 	margin: 4em 2em;
-	transition: 0.5s;
-	-webkit-transition: 0.5s;
-	border: 1px solid transparent;
-	border-left: 2px solid transparent;
-	border-bottom: 1px solid #DDD;
+	color: black;
 }	
 
-	.stall:hover {
-		background: #DDD;
-		border-left: 2px solid black;
-		border-bottom: 1px solid black;
-	}
-
-	.stall a {
-		text-decoration: none;
-	}
-	
 	.stall-header {
 		text-align: left;
 		border-top: 2px solid black;
-		border-bottom: 1px solid #AAA;
-	}
-
-	.stall-header img {
-		filter: invert(100%);
-		background: white;
-		padding: 0.5em;
-		width: 10%;	
-	}
-
-	.stall-header h1 {
+		border-bottom: 1px solid #999;
 		position: relative;
-		top: -0.5em;
-		font-size: 1.5em;
-		display: inline;
-		margin-bottom: 0px !important;
 	}
+
+
+		.stall-header img {
+			background: black;
+			padding: 0.3em;
+			margin-bottom: 0;
+			width: 10em;	
+		}
+
+		.stall-header .stall-info {
+			display: inline;
+			position: absolute;
+			width: 70%;
+			margin: 1.5em 1em;
+		}
 
 	.stall-body {
 		padding: 1em;
+		margin-top: 0.5em;
+		border-left: 2px solid black;
 	}
 
-	.stall-body img {
-		width: 70%;
-		margin-bottom: 0.5em;
-		border-radius: 20%;
-	}
+		.stall-body img {
+			width: 70%;
+			margin-bottom: 0.5em;
+			border-radius: 20%;
+		}
 
-	.stall-desc {
+.menu {
+
+}
+
+	.menu-item {
+		position: relative;
+		margin: 0.5em 1em;
 		text-align: left;
 	}
+		.menu-item:nth-child(2n+1) {
+			background: #DDD;
+		}
+
+		.menu-item img {
+			width: 10%;
+			padding: 0.5em;
+			margin: 0;
+		}
+
+		.menu-desc {
+			position: absolute;
+			display: inline;
+			margin: 1em;
+		}

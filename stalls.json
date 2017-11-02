@@ -1,7 +1,7 @@
 [
 	{
 		"id": 1,
-		"stall-name": "AYIS OF MNL",
+		"stall-name": "Ayis of MNL",
 		"stall-desc": "Good stuff from Carlo's",
 		"contact": "facebook.com/carloque",
 		"items": [
@@ -19,108 +19,118 @@
 	},
 	{
 		"id": 2,
-		"stall-name": "BAEJING",
-		"stall-desc": "Bad stuff from Gab's",
+		"stall-name": "Baejing",
+		"stall-desc": "Stall description here",
 		"contact": "facebook.com/gabage",
 		"items": [
 			{
-				"item-name": "Trash",
-				"item-desc": "Ew",
+				"item-name": "Item",
+				"item-desc": "It's great",
 				"price": 90.00
 			},
 			{
-				"item-name": "More trash",
-				"item-desc": "More ew",
+				"item-name": "Item2",
+				"item-desc": "It's even greater",
 				"price": 100.00
 			}
 		]
 	},
 	{
 		"id": 3,
-		"stall-name": "FÚ FIGHTERS",
-		"stall-desc": "Bad stuff from Gab's",
+		"stall-name": "Fú Fighters",
+		"stall-desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quasi consequuntur quis quidem provident exercitationem incidunt inventore ipsam enim fugit! Perferendis officiis placeat voluptas ea eius quos, eveniet provident. Dolores odio harum unde accusamus eligendi ullam, eveniet provident inventore deserunt tenetur modi itaque. Laboriosam alias nisi excepturi eius, incidunt nihil.",
 		"contact": "facebook.com/gabage",
 		"items": [
 			{
-				"item-name": "Trash",
-				"item-desc": "Ew",
+				"item-name": "Chicken thing",
+				"item-desc": "It's great",
 				"price": 90.00
 			},
 			{
-				"item-name": "More trash",
-				"item-desc": "More ew",
+				"item-name": "Fu-ried chicken",
+				"item-desc": "It's even greater",
+				"price": 100.00
+			},
+			{
+				"item-name": "Fu-rozen chicken",
+				"item-desc": "It's even greater",
+				"price": 100.00
+			},
+			{
+				"item-name": "Fu-dge chicken",
+				"item-desc": "It's even greater",
 				"price": 100.00
 			}
 		]
 	},
 	{
 		"id": 4,
-		"stall-name": "MEI WEI",
-		"stall-desc": "Bad stuff from Gab's",
+		"stall-name": "Mei Wei",
+		"stall-desc": "Stall description here",
 		"contact": "facebook.com/gabage",
 		"items": [
 			{
-				"item-name": "Trash",
-				"item-desc": "Ew",
+				"item-name": "Item",
+				"item-desc": "It's great",
 				"price": 90.00
 			},
 			{
-				"item-name": "More trash",
-				"item-desc": "More ew",
+				"item-name": "Item2",
+				"item-desc": "It's even greater",
 				"price": 100.00
 			}
 		]
 	},
 	{
 		"id": 5,
-		"stall-name": "NEKCIHC",
-		"stall-desc": "Bad stuff from Gab's",
+		"stall-name": "Nekcihc",
+		"stall-desc": "Stall description here",
 		"contact": "facebook.com/gabage",
 		"items": [
 			{
-				"item-name": "Trash",
-				"item-desc": "Ew",
+				"item-name": "Item",
+				"item-desc": "It's great",
 				"price": 90.00
 			},
 			{
-				"item-name": "More trash",
-				"item-desc": "More ew",
+				"item-name": "Item2",
+				"item-desc": "It's even greater",
 				"price": 100.00
 			}
 		]
 	},
 	{
 		"id": 6,
-		"stall-name": "RICE RICE BABY",
-		"stall-desc": "Bad stuff from Gab's",
+		"stall-name": "Rice Rice Baby",
+		"stall-desc": "Stall description here",
 		"contact": "facebook.com/gabage",
 		"items": [
 			{
-				"item-name": "Trash",
-				"item-desc": "Ew",
+				"item-name": "Item",
+				"item-desc": "It's great",
 				"price": 90.00
 			},
 			{
-				"item-name": "More trash",
-				"item-desc": "More ew",
+				"item-name": "Item2",
+				"item-desc": "It's even greater",
 				"price": 100.00
 			}
 		]
 	},
 	{
 		"id": 7,
-		"stall-name": "THE FLAVOR SHOW",
-		"stall-desc": "Bad stuff from Gab's",
+		"stall-name": "The Flavor Show",
+		"stall-desc": "Stall description here",
 		"contact": "facebook.com/gabage",
 		"items": [
 			{
-				"item-name": "Trash",
-				"item-desc": "Ew",
+				"item-name": "Item",
+				"item-desc": "It's great",
 				"price": 90.00
 			},
 			{
-				"item-name": "More trash",
-				"item-desc": "More ew",
+				"item-name": "Item2",
+				"item-desc": "It's even greater",
 				"price": 100.00
 			}
 		]
@@ -128,18 +138,28 @@
 	{
 		"id": 8,
 		"stall-name": "question_icon",
-		"stall-desc": "Bad stuff from Gab's",
+		"stall-desc": "This is a test stall",
 		"contact": "facebook.com/gabage",
 		"items": [
 			{
-				"item-name": "Trash",
-				"item-desc": "Ew",
+				"item-name": "Item 1",
+				"item-desc": "This is the item description",
 				"price": 90.00
 			},
 			{
-				"item-name": "More trash",
-				"item-desc": "More ew",
+				"item-name": "Item 2",
+				"item-desc": "And more description here",
 				"price": 100.00
+			},
+			{
+				"item-name": "Item 3",
+				"item-desc": "And more description here",
+				"price": 200.00
+			},
+			{
+				"item-name": "Item 4",
+				"item-desc": "And more description here",
+				"price": 500.50
 			}
 		]
 	}

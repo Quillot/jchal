@@ -1,21 +1,28 @@
 {{define "index"}}
 	<div id="index">
-		{{range .}}
 		<div class="stall">
-			<a href="">
-				<div class="stall-header">
-					<img src="../static/images/sandwich_icon.png">
-					<h1>{{.StallName}}</h1><br>
+			<div class="stall-header">
+				<img src="../static/images/{{.StallName}}.png">
+				<div class="stall-info">
+					<h1>{{.StallName}}</h1>
+					<p>{{.StallDesc}}</p>	
 				</div>
-				<div class="stall-body">
-					<img src="../static/images/{{.StallName}}.png">
-					<div class="stall-desc">
-						<h3>{{.StallDesc}}</h3>	
+			</div>
+			<div class="stall-body">
+				<div class="menu">
+					<h1>Menu</h1>	
+					{{range .Items}}
+					<div class="menu-item">
+						<img src="../static/images/sandwich_icon.png" alt="">
+						<div class="menu-desc">
+							<h3>{{.ItemName}} - PHP{{.Price}}</h3> 
+							<p>{{.ItemDesc}}</p>
+						</div>
 					</div>
+					{{end}}
 				</div>
-			</a>
+			</div>
 		</div>
-		{{end}}
 	</div>
 </body>
 </html>	

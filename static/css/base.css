@@ -1,3 +1,17 @@
+@font-face {
+	font-family: pt-sans;
+	src: url("../../static/fonts/pt-sans/PTS55F.ttf");
+}
+
+@font-face {
+	font-family: pt-sans-bold;
+	src: url("../../static/fonts/pt-sans/PTS75F.ttf");
+}
+
+body {
+	background: #f4f4f4;
+}
+
 a {
 	display: inline !important;
 }
@@ -16,12 +30,21 @@ a {
 		margin: 2em 0;
 	}
 
+.main {
+	margin: 2px auto;
+	width: 94%;
+	height: 6em;
+	background: url("../../static/images/jsec_challenge.jpg");
+	background-size: cover;
+	border: 1px solid transparent;
+}
+
 .tile {
 	display: inline;
 	width: 30%;
 }
 
-	.tile img:hover {
+	.tile img:hover, .main:hover {
 		filter: grayscale(40%);
 		border: 1px solid white;
 	}
